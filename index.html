@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="imgurApp">
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body ng-controller="imgurCtrl">
+        <div id="header-container">
+            <h2>CS 201 R Imgur Cycler</h2>
+        </div>
+        <div class="imgur-obj" ng-repeat="x in imgurData.data">
+            {{x.link}}
+        </div>
+    </body>
+    <script src="app.js"></script>
+    <script src="ctrl.js"></script>
+
+
+</html>
