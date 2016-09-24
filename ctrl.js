@@ -10,7 +10,7 @@ var albumAPI = "https://api.imgur.com/3/album/" + albumID + "/images";
       },
       type: 'GET',
       dataType: 'json',
-      success: function(data) { 
+      success: function(data) {
 
           alert(data.data[0].link);
 
@@ -68,7 +68,7 @@ app.controller("imgurCtrl", function($scope, $http) {
                 //console.log(response.statusText);
             });
         }
-        
+
     };
-    
+
 });

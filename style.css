@@ -3,8 +3,10 @@ body {
 }
 
 #header-container {
-    height: 25px;
+    height: 45px;
     color: lightgray;
+    background-color: lightyellow;
+
 }
 #header-container h1, h2, h3 {
     color: black;
