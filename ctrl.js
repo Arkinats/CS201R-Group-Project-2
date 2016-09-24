@@ -30,6 +30,24 @@ app.controller("imgurCtrl", function($scope, $http) {
     $scope.page = 0;
     $scope.url = "https://api.imgur.com/3/gallery/hot/viral/" + $scope.page + ".json";
     $scope.imgurData = [];
+
+    $http({
+        method: 'GET',
+        url: $scope.url
+        }).then(function successCallback(response) {
+            console.log("Successfully called get on " + $scope.url);
+            $scope.imgurData = response.data.data;
+            //console.log(response.statusText);
+            console.log($scope.imgurData);
+            //console.log(response.data);
+            //console.log(response.status);
+            //console.log(response.headers);
+            //console.log(response.config);
+        }, function errorCallback(response) {
+            console.log("Failed to call get on " + $scope.url);
+            //console.log(response.statusText);
+    });
+
     $scope.getPages = function() {
         for( i = 0 ; i < 100 ; i++){
             $scope.url = "https://api.imgur.com/3/gallery/hot/viral/" + i + ".json";
