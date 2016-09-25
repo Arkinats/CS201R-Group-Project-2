@@ -6,11 +6,79 @@
     </head>
     <body ng-controller="imgurCtrl">
         <div id="header-container">
-            <h2>CS 201 R Imgur Cycler</h2>
+            <h2>CS 201 R Imgur Top User Post Analyzer</h2>
         </div>
-        <div class="imgur-obj" ng-repeat="x in imgurData.data">
-            {{x.link}}
+        
+        <div id="body-container">
+            <div id="setup" ng-show="showSetup">
+                <p>Number of Pages Deep to Analyze: <input type="number" ng-model="pages"></p>
+                <button ng-click="getPages()">Start</button>
+            </div>
+            <div id="results" ng-show="showResults">
+                <div id="stats-header">
+                    <h2>Statistical Information for Top 10 Imgurian Posters</h2>
+                    <div class="column1">
+                        <strong>Username</strong>
+                    </div>
+                    <div class="column2">
+                        <strong>Post Count</strong>
+                    </div>
+                    <div class="column3">
+                        <strong>% of all Posts</strong>
+                    </div>
+                    <div class="column3">
+                        <strong>Up Votes</strong>
+                    </div>
+                    <div class="column3">
+                        <strong>Down Votes</strong>
+                    </div>
+                    <div class="column3">
+                        <strong>Up Down Difference</strong>
+                    </div>
+                    <div class="column3">
+                        <strong>Total Comments</strong>
+                    </div>
+                </div>
+                <div class="stats" ng-repeat="x in users | orderBy:'-count' | limitTo:11">
+                    <div class="stats-block" ng-click="toggle(x)">
+                        <div class="column1">
+                            {{x.name}}
+                        </div>
+                        <div class="column2">
+                            {{x.count}}
+                        </div>
+                        <div class="column3">
+                            {{x.count / totalCount * 100 | number:3}}%
+                        </div>
+                        <div class="column3">
+                            {{x.ups}}
+                        </div>
+                        <div class="column3">
+                            {{x.downs}}
+                        </div>
+                        <div class="column3">
+                            {{x.ups - x.downs}}
+                        </div>
+                        <div class="column3">
+                            {{x.commentCount}}
+                        </div>
+                    </div>
+                    <div class="stats-details" ng-show="x.show">
+                        <h3>Additional information:</h3>
+                        <p>Total Up-Votes: {{x.ups}}</p>
+                        <p>Total Down-Votes: {{x.downs}}</p>
+                        <p>Total Commens Made: {{x.commentCount}}</p>
+                    </div>
+                </div>
+                <div id="overall-stats">
+                    <h2>Overall Stats</h2>
+                    <p>Total Unique Users: {{users.length - 1}}</p>
+                    <p>Total Post Count: {{totalCount}}</p>
+                </div>
+            </div>
         </div>
+
+        
     </body>
     <script src="app.js"></script>
     <script src="ctrl.js"></script>

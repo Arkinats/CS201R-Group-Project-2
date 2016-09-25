@@ -1,19 +1,64 @@
-body {
-    background-color: lightgoldenrodyellow;
+html {
+    background-color: #BBD9EE;
 }
 
 #header-container {
-    height: 25px;
-    color: lightgray;
+    height: 58px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #206BA4;
 }
-#header-container h1, h2, h3 {
+#body-container {
+    width: 100;
+    position: relative;
+    top: 50px;
+}
+#results, #setup {
+    margin-top: 15px;
+    width: 85%;
+    margin: auto;
+    background-color: #C0C0C0;
+}
+
+h1, h2, h3 {
     color: black;
     text-align: center;
 }
-.imgur-obj {
-    width: 20%;
-    height: auto;
-    padding: 5px;
-    margin: 6px;
-    border: 3px white solid;
+
+
+[class^="column"] {
+    display: inline-block;
+    padding: 7px;
+    margin: 2px;
+}
+.column1 {
+    width: 250px;
+}
+.column2 {
+    width: 50px;
+}
+.column3 {
+    width: 80px;
+}
+
+#stats-header, #setup {
+    padding: 7px;
+
+}
+.stats:nth-child(odd) {
+    background-color: #F1EFE2;
+    padding: 7px;
+}
+.stats:nth-child(even) {
+    background-color: #EBF4FA;
+    padding: 7px;
+}
+.stats-details {
+    background-color: #E7E4D3;
+    padding: 7px;
+}
+#overall-stats {
+    padding: 7px;
 }
