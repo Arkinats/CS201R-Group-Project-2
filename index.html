@@ -10,10 +10,27 @@
         </div>
         
         <div id="body-container">
+<<<<<<< HEAD
+            <!-- Div that shows options prior to the imgur GET -->
+            <div id="setup" ng-show="showSetup">
+                <h3>Setup</h3>
+                <p>Number of pages deep to analyze: <input type="number" ng-model="setupPages" min="0" max="50"></p>
+                <p>Number of top contributors to Display: <input type="number" ng-model="setupUsers" min="0" max="101"></p>
+                <button ng-click="getPages()">Start</button>
+                <br>
+                <h3>Information</h3>
+                <p>This site pulls data from the currently most viral images on <a href="http://imgur.com">Imgur.com</a>.  It then combs the data to
+                    provide basic statistical information from the current top contributors.</p>
+                <p>Once the information is displayed, click a row to view their contributions.</p>
+                <p>Warning, this does not filter NSFW tags.</p>
+            </div>
+
+=======
             <div id="setup" ng-show="showSetup">
                 <p>Number of Pages Deep to Analyze: <input type="number" ng-model="pages"></p>
                 <button ng-click="getPages()">Start</button>
             </div>
+>>>>>>> origin/JD-Edits
             <div id="results" ng-show="showResults">
                 <div id="stats-header">
                     <h2>Statistical Information for Top 10 Imgurian Posters</h2>
@@ -39,7 +56,11 @@
                         <strong>Total Comments</strong>
                     </div>
                 </div>
+<<<<<<< HEAD
+                <div class="stats" ng-repeat="x in users | orderBy:'-count' | limitTo:setupUsers">
+=======
                 <div class="stats" ng-repeat="x in users | orderBy:'-count' | limitTo:11">
+>>>>>>> origin/JD-Edits
                     <div class="stats-block" ng-click="toggle(x)">
                         <div class="column1">
                             {{x.name}}
@@ -63,17 +84,30 @@
                             {{x.commentCount}}
                         </div>
                     </div>
+<<<<<<< HEAD
+                    <div class="stats-details" ng-show="x.show" ng-click="toggle(x)">
+                        <h3>Posts</h3>
+                        <div class="stats-images" ng-repeat="y in x.posts">
+                            <!-- this is currently pulling from x.posts.  Once imgData is filled, switch to that -->
+                            <img src={{y}}>
+                        </div>
+=======
                     <div class="stats-details" ng-show="x.show">
                         <h3>Additional information:</h3>
                         <p>Total Up-Votes: {{x.ups}}</p>
                         <p>Total Down-Votes: {{x.downs}}</p>
                         <p>Total Commens Made: {{x.commentCount}}</p>
+>>>>>>> origin/JD-Edits
                     </div>
                 </div>
                 <div id="overall-stats">
                     <h2>Overall Stats</h2>
                     <p>Total Unique Users: {{users.length - 1}}</p>
                     <p>Total Post Count: {{totalCount}}</p>
+<<<<<<< HEAD
+                    <p>Pages Parsed: {{setupPages}}</p>
+=======
+>>>>>>> origin/JD-Edits
                 </div>
             </div>
         </div>

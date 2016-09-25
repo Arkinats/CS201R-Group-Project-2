@@ -1,9 +1,35 @@
 html {
     background-color: #BBD9EE;
+<<<<<<< HEAD
+}
+h1, h2, h3 {
+    color: black;
+    text-align: center;
+=======
+>>>>>>> origin/JD-Edits
 }
 
+img {
+    height: 100px;
+    width: auto;
+}
+button {
+    background-color: #206BA4;
+    color: white;
+    border: solid 3px #206BA4;
+    text-decoration: none;
+    padding: 3px 7px;
+}
+button:hover {
+    background-color: white;
+    color: #206BA4;
+}
 #header-container {
+<<<<<<< HEAD
+    height: 68px;
+=======
     height: 58px;
+>>>>>>> origin/JD-Edits
     width: 100%;
     position: absolute;
     left: 0;
@@ -13,7 +39,11 @@ html {
 #body-container {
     width: 100;
     position: relative;
+<<<<<<< HEAD
+    top: 60px;
+=======
     top: 50px;
+>>>>>>> origin/JD-Edits
 }
 #results, #setup {
     margin-top: 15px;
@@ -22,6 +52,45 @@ html {
     background-color: #C0C0C0;
 }
 
+<<<<<<< HEAD
+
+
+[class^="column"] {
+    display: inline-block;
+    padding: 7px;
+    margin: 2px;
+}
+.column1 {
+    width: 250px;
+}
+.column2 {
+    width: 50px;
+}
+.column3 {
+    width: 80px;
+}
+
+#stats-header, #setup {
+    padding: 7px;
+
+}
+.stats:nth-child(odd) {
+    background-color: #F1EFE2;
+    padding: 7px;
+}
+.stats:nth-child(even) {
+    background-color: #EBF4FA;
+    padding: 7px;
+}
+.stats-details {
+    background-color: #E7E4D3;
+    padding: 7px;
+}
+.stats-images {
+    display: inline-block;
+    margin: 3px;
+}
+=======
 h1, h2, h3 {
     color: black;
     text-align: center;
@@ -59,6 +128,7 @@ h1, h2, h3 {
     background-color: #E7E4D3;
     padding: 7px;
 }
+>>>>>>> origin/JD-Edits
 #overall-stats {
     padding: 7px;
 }
