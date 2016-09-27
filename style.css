@@ -1,0 +1,90 @@
+
+/* standard formatting */
+html {}
+body {
+      background-color: #BBD9EE;
+}
+h1, h2, h3 {
+    color: rgb(121, 133, 145);
+    text-align: center;
+}
+
+/* navbar */
+.navbar-header {
+  float: left;
+  text-align: center;
+}
+.navbar-header {
+  float: none;
+}
+
+/* results columns this includes even/odd div striping for results */
+
+
+[class^="column"] {
+    display: inline-block;
+    padding: 7px;
+    margin: 2px;
+}
+
+
+.row-striped:nth-child(odd) {
+    background-color: #b0d1f0;
+    padding: 7px;
+    border-radius: 5px;
+}
+.row-striped:nth-child(odd):hover {
+  background-color: rgb(136, 168, 200);
+  -moz-transition: background-color .3s ease-in-out;
+  -webkit-traisition: background-color .3s ease-in-out;
+  -o-traisition: background-color .3s ease-in-out;
+  transition: background-color .3s ease-in-out;
+
+}
+.row-striped:nth-child(even) {
+    background-color: rgb(136, 168, 200);
+    padding: 7px;
+    border-radius: 5px;
+
+}
+.row-striped:nth-child(even):hover {
+  background-color: #b0d1f0;
+  -moz-transition: background-color .3s ease-in-out;
+  -webkit-traisition: background-color .3s ease-in-out;
+  -o-traisition: background-color .3s ease-in-out;
+  transition: background-color .3s ease-in-out;
+}
+
+
+.stats-details {
+    background-color: #E7E4D3;
+    padding: 7px;
+}
+
+/* To enlarge images on hover, also general formatting */
+
+img {
+    height: 120px;
+    width: auto;
+}
+
+.stats-images {
+    display: inline-block;
+    margin: 3px;
+    -moz-transition: transform 0.5s ease-in-out;
+    -webkit-transition: transform 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out;
+    transition: transform: 0.5s ease-in-out;
+}
+
+.stats-images:hover {
+  -moz-transform: scale(3.0);
+  -webkit-transform: scale(3.0);
+  transform: scale(3.0);
+}
+
+
+
+#overall-stats {
+    padding: 7px;
+}

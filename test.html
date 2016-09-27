@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Photos from Flickr</title>
+  <meta charset="utf-8">
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script>
+      $(function() {
+
+        var imgurl = "https://api.imgur.com/3/gallery/hot/viral/" + i + ".json";
+        $http({
+            headers: {'Authorization': 'Client-ID 55f28598b46e0fa'},
+            method: 'GET',
+            url: imgurl
+        }).then(function successCallback(response) {
+            $.each(response, function(i){
+            pageData.push(response[i]);
+          })
+          alert(pageData.length);
+        }, function errorCallback(response) {
+            console.log("Failed to call get on " + imgurl);
+
+        });
+
+
+        return pageData;
+
+      }
+    </script>
+</head>
+<body>
+
+  <div id="photos">Yay</div>
+  <!--<img src="https://farm9.staticflickr.com/8422/29040635054_86403ebe37.jpg"> -->
+</body>
+</html>

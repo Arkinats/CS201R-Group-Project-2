@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html ng-app="imgurApp">
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+    </head>
+    <body ng-controller="imgurCtrl">
+      <div class="overlay">
+          <nav class="navbar navbar-fixed navbar-inverse">
+              <div class="container-fluid">
+                <div class="navbar-header navbar-fixed">
+            <h2>CS 201 R Imgur Top User Post Analyzer</h2>
+          </div>
+          </div>
+          </nav>
+
+
+        <div class="container">
+            <!-- Div that shows options prior to the imgur GET -->
+            <div class="jumbotron" ng-show="showSetup">
+                <h3>Setup</h3>
+                <p>Number of pages deep to analyze: <input type="number" ng-model="setupPages" min="0" max="50"></p>
+                <p>Number of top contributors to Display: <input type="number" ng-model="setupUsers" min="0" max="101"></p>
+                <button class="btn btn-primary" ng-click="getPages()">Start</button>
+                <br>
+                <h3>Information</h3>
+                <p>This site pulls data from the currently most viral images on <a href="http://imgur.com">Imgur.com</a>.  It then combs the data to
+                    provide basic statistical information from the current top contributors.</p>
+                <p>Once the information is displayed, click a row to view their contributions.</p>
+                <p>Warning, this does not filter NSFW tags.</p>
+            </div>
+
+            <div class="jumbotron" ng-show="showResults">
+
+                    <h2>Statistical Information for Top 10 Imgurian Posters</h2>
+                    <p>Click a row to display user's images, hover images to expand.
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <strong>Username</strong>
+                    </div>
+                    <div class="col-sm-1">
+                        <strong>Post Count</strong>
+                    </div>
+                    <div class="col-sm-1">
+                        <strong>% of all Posts</strong>
+                    </div>
+                    <div class="col-sm-1">
+                        <strong>Up Votes</strong>
+                    </div>
+                    <div class="col-sm-1">
+                        <strong>Down Votes</strong>
+                    </div>
+                    <div class="col-sm-2">
+                        <strong>Up Down Difference</strong>
+                    </div>
+                    <div class="col-sm-1">
+                        <strong>Total Comments</strong>
+                    </div>
+                    <div class="col-sm-1">
+                        <strong>Repost Count</strong>
+                    </div>
+                    <div class="col-sm-1">
+                        <strong>Repost %</strong>
+                    </div>
+                </div>
+
+                <div class="row row-striped" ng-repeat="x in users | orderBy:'-count' | limitTo:setupUsers">
+                    <div class="stats-block" ng-click="toggle(x)">
+                        <div class="col-sm-3">
+                            {{x.name}}
+                        </div>
+                        <div class="col-sm-1">
+                            {{x.count}}
+                        </div>
+                        <div class="col-sm-1">
+                            {{x.count / totalCount * 100 | number:2}}%
+                        </div>
+                        <div class="col-sm-1">
+                            {{x.ups}}
+                        </div>
+                        <div class="col-sm-1">
+                            {{x.downs}}
+                        </div>
+                        <div class="col-sm-2">
+                            {{x.ups - x.downs}}
+                        </div>
+                        <div class="col-sm-1">
+                            {{x.commentCount}}
+                        </div>
+                        <div class="col-sm-1">
+                            {{x.repostCount}}
+                        </div>
+                        <div class="col-sm-1">
+                            {{x.repostCount / x.count * 100 | number:2}}%
+                        </div>
+                    </div>
+                    <div class="stats-details" ng-show="x.show" ng-click="toggle(x)">
+                        <h3>Posts</h3>
+                        <div class="stats-images" ng-repeat="y in x.imgData">
+                         <a href="{{y}}" target="_blank"> <img src={{y}}></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="overall-stats">
+                    <h2>Overall Stats</h2>
+                    <p>Total Unique Users: {{users.length - 1}}</p>
+                    <p>Total Post Count: {{totalCount}}</p>
+                    <p>Pages Parsed: {{setupPages}}</p>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </body>
+    <script src="app.js"></script>
+    <script src="ctrl.js"></script>
+
+
+</html>
