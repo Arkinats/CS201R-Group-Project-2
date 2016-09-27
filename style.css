@@ -30,13 +30,13 @@ button:hover {
     background-color: #206BA4;
 }
 #body-container {
-    width: 100;
+    width: 100%;
     position: relative;
     top: 60px;
 }
 #results, #setup {
     margin-top: 15px;
-    width: 85%;
+    width: 1070px;
     margin: auto;
     background-color: #C0C0C0;
 }

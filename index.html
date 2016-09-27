@@ -48,6 +48,12 @@
                     <div class="column3">
                         <strong>Total Comments</strong>
                     </div>
+                    <div class="column3">
+                        <strong>Repost Count</strong>
+                    </div>
+                    <div class="column3">
+                        <strong>Repost %</strong>
+                    </div>
                 </div>
                 <div class="stats" ng-repeat="x in users | orderBy:'-count' | limitTo:setupUsers">
                     <div class="stats-block" ng-click="toggle(x)">
@@ -58,7 +64,7 @@
                             {{x.count}}
                         </div>
                         <div class="column3">
-                            {{x.count / totalCount * 100 | number:3}}%
+                            {{x.count / totalCount * 100 | number:2}}%
                         </div>
                         <div class="column3">
                             {{x.ups}}
@@ -72,11 +78,16 @@
                         <div class="column3">
                             {{x.commentCount}}
                         </div>
+                        <div class="column3">
+                            {{x.repostCount}}
+                        </div>
+                        <div class="column3">
+                            {{x.repostCount / x.count * 100 | number:2}}%
+                        </div>
                     </div>
                     <div class="stats-details" ng-show="x.show" ng-click="toggle(x)">
                         <h3>Posts</h3>
-                        <div class="stats-images" ng-repeat="y in x.posts">
-                            <!-- this is currently pulling from x.posts.  Once imgData is filled, switch to that -->
+                        <div class="stats-images" ng-repeat="y in x.imgData">
                             <img src={{y}}>
                         </div>
                     </div>
